@@ -1,0 +1,12 @@
+{
+	"rewrites": [
+		{
+			"source": "/uploads/:path*",
+			"destination": "https://chat-in-touch.onrender.com/uploads/:path*"
+		},
+		{
+			"source": "/(.*)",
+			"destination": "/"
+		}
+	]
+}

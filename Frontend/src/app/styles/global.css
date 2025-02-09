@@ -1,0 +1,68 @@
+@import './reset.css';
+
+@font-face {
+	font-family: 'Neuropol';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./fonts/NeuropolXSb-Regular.woff2');
+}
+@font-face {
+	font-family: 'Stolzl';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./fonts/Stolzl-Regular.woff2');
+}
+
+:root {
+	--bg-white: #fff;
+	--text-white: #fff;
+	--text-danger: #ff0000a0;
+	--text-grey: rgba(255, 255, 255, 0.5);
+	--text-black: #1e1e1e;
+	--gr-primary: linear-gradient(90deg, #00f0ff 0%, #00ff1a 100%);
+	--gr-border: linear-gradient(to right, #00f0ff, #00ff1a);
+	--font-family-primary: 'Stolzl';
+	--font-family-secondary: 'Neuropol';
+	--bg-selectedMessage: linear-gradient(
+		90deg,
+		rgba(0, 240, 255, 0) 7.29%,
+		#00f0ff 25.52%,
+		#00ff1a 57.29%,
+		rgba(0, 255, 26, 0.2) 78.65%,
+		rgba(0, 255, 26, 0) 100%
+	);
+}
+
+body {
+	font-family: var(--font-family-primary);
+	font-weight: 400;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #00f0ff #00ff1a;
+}
+
+*::-webkit-scrollbar {
+	width: 6px;
+	border-radius: 20px;
+}
+
+*::-webkit-scrollbar-track {
+	background: linear-gradient(to bottom, #2ae4f1, #25ec39, #2ae4f1, #25ec39);
+	border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #00f0ff;
+	opacity: 0.7;
+	border-radius: 20px;
+	box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 800px) {
+	.MuiModal-root > .MuiAvatar-root {
+		width: 250px;
+		height: 250px;
+	}
+}
