@@ -2,7 +2,9 @@ import { mobileXS } from '@/shared/lib/constants/media'
 import { ButtonBase, styled, ButtonProps } from '@mui/material'
 import { FC } from 'react'
 
-const StyledButton = styled(ButtonBase)<{ isAuth?: boolean }>`
+const StyledButton = styled(ButtonBase, {
+	shouldForwardProp: (prop) => prop !== 'isAuth',
+})<{ isAuth?: boolean }>`
 	font-size: ${(props) => (props.isAuth ? 15 : 22)}px;
 	border-radius: ${(props) => (props.isAuth ? 10 : 20)}px;
 	width: 100%;

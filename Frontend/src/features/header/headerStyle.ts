@@ -1,5 +1,5 @@
 import { mobileXS } from '@/shared/lib/constants/media'
-import { ButtonBase, styled } from '@mui/material'
+import { ButtonBase, styled, css } from '@mui/material'
 
 export const StyledHeader = styled('header')<{ isAuth: boolean }>`
 	position: relative;
@@ -78,7 +78,9 @@ export const UserInfoContainerMobile = styled('div')<{ Active?: string }>`
 	}
 `
 
-export const AstronautButton = styled(ButtonBase)<{ isAuth?: boolean }>`
+export const AstronautButton = styled(ButtonBase, {
+	shouldForwardProp: (prop) => prop !== 'isAuth',
+})<{ isAuth?: boolean }>`
 	@media ${mobileXS} {
 		display: ${(props) => (props.isAuth ? 'none' : 'block')};
 		> svg {
@@ -88,7 +90,9 @@ export const AstronautButton = styled(ButtonBase)<{ isAuth?: boolean }>`
 	}
 `
 
-export const NavButton = styled(ButtonBase)<{ route: boolean }>`
+export const NavButton = styled(ButtonBase, {
+	shouldForwardProp: (prop) => prop !== 'route',
+})<{ route?: boolean }>`
 	display: none;
 
 	@media ${mobileXS} {
