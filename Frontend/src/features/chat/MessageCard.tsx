@@ -45,7 +45,9 @@ export const MessageCard: FC<MessageCardProps> = ({ message, avatar }) => {
 		snackBarAppearance,
 		userId,
 		messageHovered,
-	} = useMessageCard(messageId)
+		isModalOpen,
+		modalContent,
+	} = useMessageCard(messageId, avatar)
 
 	return (
 		<>
@@ -65,8 +67,8 @@ export const MessageCard: FC<MessageCardProps> = ({ message, avatar }) => {
 					<FilesContainer>
 						{attachedFiles.map((file) => (
 							<StyledFile key={file} src={file} />
-						))
-					}</FilesContainer>}
+						))}
+					</FilesContainer>}
 					<MessageContent>{text}</MessageContent>
 					<DateWrapper>
 						{likedBy.length > 0 && (
@@ -115,23 +117,18 @@ export const MessageCard: FC<MessageCardProps> = ({ message, avatar }) => {
 				document.getElementById('root') as HTMLElement
 			)}
 			<Modal
-				style={{ position: 'absolute', inset: 0 }}
-				container={document.getElementById('room') as HTMLElement}
-				open={modalAvatar}
+				open={isModalOpen || false}
 				onClose={handleCloseModal}
 			>
-				<CustomAvatar
-					src={avatar}
-					sx={{
-						width: 384,
-						height: 384,
-						maxWidth: '100%',
-						position: 'absolute',
-						top: '50%',
-						left: '50%',
-						transform: 'translate(-50%, -50%)',
-					}}
-				/>
+				<div style={{
+					position: 'absolute',
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%, -50%)',
+					outline: 'none'
+				}}>
+					{modalContent}
+				</div>
 			</Modal>
 		</>
 	)

@@ -7,7 +7,7 @@ export const fileApi = baseApi.injectEndpoints({
 			query: ({ file, folder }) => ({
 				url: `/files/upload?folder=${folder}`,
 				method: 'POST',
-				headers: { ContentType: 'multipart/form-data' },
+				headers: { 'Content-Type': 'multipart/form-data' },
 				data: file,
 			}),
 			invalidatesTags: ['User'],
