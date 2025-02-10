@@ -22,7 +22,7 @@ export class FileController {
 		@UploadedFile() file: Express.Multer.File,
 		@Query('folder') folder: string
 	) {
-		return this.fileService.saveFile(file, folder)
+		return this.fileService.uploadFile(file, folder)
 	}
 
 	@Delete('delete')

@@ -20,8 +20,8 @@ import { LikeMessageDto } from './dto/message/like-message.dto'
 
 @WebSocketGateway({
 	cors: {
+		origin: 'http://localhost:5173',
 		credentials: true,
-		origin: ClientUrl,
 	},
 })
 export class ChatGateway {

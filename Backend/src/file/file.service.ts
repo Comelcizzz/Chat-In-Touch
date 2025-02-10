@@ -25,4 +25,14 @@ export class FileService {
 	async deleteFile(filePath: string) {
 		await remove(`${path}${filePath}`)
 	}
+
+	async uploadFile(file: Express.Multer.File, folder: string) {
+		const fileName = `${Date.now()}-${file.originalname}`
+		const filePath = `uploads/${folder}/${fileName}`
+		
+		await ensureDir(`uploads/${folder}`)
+		await writeFile(filePath, file.buffer)
+		
+		return { url: `/${filePath}` }
+	}
 }

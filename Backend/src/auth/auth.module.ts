@@ -14,8 +14,8 @@ import { ConnectModule } from 'src/connect/connect.module'
 		MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
 		JwtModule.register({
 			global: true,
-			secret: new ConfigService().get<string>('JWT_ACCESS_SECRET'),
-			signOptions: { expiresIn: '60s' },
+			secret: process.env.JWT_ACCESS_SECRET,
+			signOptions: { expiresIn: '15m' },
 		}),
 		UserModule,
 		ConnectModule,

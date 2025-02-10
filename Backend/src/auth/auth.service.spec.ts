@@ -81,7 +81,7 @@ describe('auth.service.spec.ts', () => {
 		}
 	})
 
-	const email = 'test@mail.ru'
+	const email = 'test@mail.ua'
 	const password = 'testpassword'
 	const username = 'username'
 	const wrongPassword = 'wrongpassword'
